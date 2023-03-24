@@ -137,9 +137,14 @@ CONTENTS
     z-index: 1;
 }
 
+@keyframes showLeft {
+    from {left:-100%;}
+    to {left:0;}
+}
+
 #line3 {
     position: relative;
-    animation: showLeft 5s;
+    animation: showLeft 3s;
     z-index: 1;
 }
 
@@ -150,12 +155,12 @@ CONTENTS
 
 #line2 {
     position: relative;
-    animation: showRight 4s;
+    animation: showRight 3s;
     z-index: 1;
 }
     
 @keyframes showRight {
-    from {left:500%;}
+    from {left:100%;}
     to {left:0;}
 }
 
