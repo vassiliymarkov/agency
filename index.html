@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name=“viewport“ content=“width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0“>
+    <meta name="Robots" content="all">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <link href="css/style.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wraper">
+        
+        <div id="test">
+            <img>
+            <div id="screen">
+
+            </div>
+                <div id="greeting2">
+                    <span id="line1">SITENAME</span><br />
+                    <span id="line2">un lieu où les rêves et les possibilités</span><br />
+                    <span id="line3">se rencontrent</span><br />
+                </div>
+            </div>
+          
+        <script>
+        initImg('#test img', [
+      'img/intro_01.webp', 
+      'img/intro_02.webp', 
+      'img/intro_03.webp', 
+      'img/intro_04.webp', 
+      'img/intro_05.webp'
+    ]); 
+    
+    function initImg(selector, srcArr) {
+      const img = document.querySelector(selector); 
+      Object.assign(img, {
+        buf: Object.assign(new Image(), { img }), 
+        srcArr: [...srcArr], 
+        changeInterval: 5e3,
+        bufIdx: 0,
+        change: function () {
+          this.style.animationName = 'img-in'; 
+          this.src = this.buf.src || this.nextImage(); 
+          this.buf.src = this.nextImage(); 
+        }, 
+        nextImage: function () {
+          this.bufIdx = ++this.bufIdx < this.srcArr.length ? this.bufIdx : 0;
+          return this.srcArr[this.bufIdx];
+        }
+      }); 
+      img.buf.addEventListener('load', loadHandler); 
+      img.addEventListener('animationend', animEndHandler); 
+      img.change(); 
+      return img; 
+    
+      function loadHandler() {
+        setTimeout(
+          () => this.img.style.animationName = 'img-out', 
+          this.img.changeInterval 
+        ); 
+      }
+      function animEndHandler({ animationName }) {
+        if (animationName === 'img-out') 
+          this.change(); 
+      }
+    }
+    </script>
+
+    </div>
+</body>
