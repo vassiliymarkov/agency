@@ -23,59 +23,64 @@
         
         <div id="test">
             <img>
-            <div id="screen">
-
-            </div>
+            <div id="screen"></div>
                 <div id="greeting2">
                     <span id="line1">SITENAME</span><br />
                     <span id="line2">un lieu où les rêves et les possibilités</span><br />
                     <span id="line3">se rencontrent</span><br />
                 </div>
             </div>
-          
-        <script>
-        initImg('#test img', [
-      'img/intro_01.webp', 
-      'img/intro_02.webp', 
-      'img/intro_03.webp', 
-      'img/intro_04.webp', 
-      'img/intro_05.webp'
-    ]); 
-    
-    function initImg(selector, srcArr) {
-      const img = document.querySelector(selector); 
-      Object.assign(img, {
-        buf: Object.assign(new Image(), { img }), 
-        srcArr: [...srcArr], 
-        changeInterval: 5e3,
-        bufIdx: 0,
-        change: function () {
-          this.style.animationName = 'img-in'; 
-          this.src = this.buf.src || this.nextImage(); 
-          this.buf.src = this.nextImage(); 
-        }, 
-        nextImage: function () {
-          this.bufIdx = ++this.bufIdx < this.srcArr.length ? this.bufIdx : 0;
-          return this.srcArr[this.bufIdx];
-        }
-      }); 
-      img.buf.addEventListener('load', loadHandler); 
-      img.addEventListener('animationend', animEndHandler); 
-      img.change(); 
-      return img; 
-    
-      function loadHandler() {
-        setTimeout(
-          () => this.img.style.animationName = 'img-out', 
-          this.img.changeInterval 
-        ); 
-      }
-      function animEndHandler({ animationName }) {
-        if (animationName === 'img-out') 
-          this.change(); 
-      }
-    }
-    </script>
 
+        <div class="header" id="my_header">
+          <div class="header_container">
+            <a href="" class="header_logo"><img src="img/logo.png"</a>
+            <div class="header_menu menu">
+              <div class="menu_icon">
+                <span></span>
+              </div>
+              <nav class="menu_body">
+                <ul class="menu_list">
+                  <li><a href="#" class="menu_link">Accueil</a></li>
+                  <li><a href="#" class="menu_link active">Deejay</a></li>
+                  <li><a href="#" class="menu_link">Photographe</a></li>
+                  <li><a href="#" class="menu_link">Videaste</a></li>
+                  <li><a href="#" class="menu_link">Décoration</a></li>
+                  <li><a href="#" class="menu_link">Wedding Planner</a></li>
+                  <li><a href="#" class="menu_link">Voiture événementielle</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <section id="presentation">
+          <div id="presentation_left">
+            <img src="img/intro_01.webp" alt="" class="wide">
+            <img src="img/intro_02.webp" alt="" class="narrow">
+            <img src="img/intro_03.webp" alt="" class="narrow">
+            <img src="img/intro_04.webp" alt="" class="wide">
+            <img src="img/intro_05.webp" alt="" class="wide">
+            <img src="img/intro_01.webp" alt="" class="narrow">
+          </div>
+          <div id="presentation_right">
+            <p>
+              Vas-tu te marier? Vas-tu te marier? Célébrer l'anniversaire de votre enfant ? Vous organisez une soirée d'entreprise ? Nous vous aiderons à trouver les
+              meilleurs professionnels !
+            </p>
+
+            <p>
+              Vous souhaitez immortaliser les moments importants de votre vie ? trouvez le meilleur photographe ou caméraman parmi nos partenaires !
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius sodales purus ut tempus. Integer ac tempor est, sed ultricies dui. Morbi sagittis varius turpis. In viverra nibh nec nisi consequat, sed volutpat leo convallis. Vivamus a pretium diam, vel tempor justo. Integer lobortis ultrices congue. Cras sed orci sit amet turpis semper congue ut sit amet ante. Sed maximus sollicitudin tortor, sit amet posuere dolor sollicitudin ac. Cras at porta ante. 
+            </p>
+          </div>
+        </section>
+
+        
+        
     </div>
+
+<script src="js/script.js"></script>
+
 </body>

@@ -164,3 +164,107 @@ CONTENTS
     to {left:0;}
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+}
+
+.header {
+    margin: 0 auto 100px auto;
+    width: 100%;
+    background-color: white;
+    min-height: 70px;
+}
+
+.header_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_logo img {
+
+}
+
+.menu_list > li {
+    position: relative;
+    margin: 0 0 0 10px; 
+}
+
+.menu_list a {
+    text-transform: uppercase;
+}
+
+.menu_link {
+    color: black;
+    font-size: 24px;
+}
+
+.menu_link:hover {
+    text-decoration: underline;
+    border: 3px solid red;
+    padding: 3px;
+}
+
+.menu_link.active {
+    border: 3px solid red;
+    padding: 3px;
+}
+
+#presentation {
+    max-width: 100%;
+    /*height: calc(100vh - 70px);*/
+    display: flex;
+}
+
+#presentation_left {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    
+}
+
+.wide {
+    width: 60%;
+    height: 33.3333%;
+    object-fit: cover;
+    padding: 3px;
+}
+
+.narrow {
+    width: 40%;
+    height: 33.3333%;
+    object-fit: cover;
+    padding: 3px;
+}
+
+#presentation_right {
+    width: 50%;
+}
+
+#presentation_right p {
+    padding: 0 30px 30px 50px;
+    font-size: 1rem;
+    font-weight: lighter;
+    letter-spacing: 0.04rem;
+    line-height: 2.5rem;
+}
+
+@media (min-width: 767px) {
+    .menu_list {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu_list > li {
+        padding: 10px 0;
+    }
+}
+
