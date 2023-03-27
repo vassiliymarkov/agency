@@ -1,51 +1,5 @@
 "use strict"
 
-//IMAGE GALLERY ON THE FIRST SCREEN
-
-initImg("#test img", [
-  "img/intro_01.webp",
-  "img/intro_02.webp",
-  "img/intro_03.webp",
-  "img/intro_04.webp",
-  "img/intro_05.webp",
-]);
-
-function initImg(selector, srcArr) {
-  const img = document.querySelector(selector);
-  Object.assign(img, {
-    buf: Object.assign(new Image(), { img }),
-    srcArr: [...srcArr],
-    changeInterval: 5e3,
-    bufIdx: 0,
-    change: function () {
-      this.style.animationName = "img-in";
-      this.src = this.buf.src || this.nextImage();
-      this.buf.src = this.nextImage();
-    },
-    nextImage: function () {
-      this.bufIdx = ++this.bufIdx < this.srcArr.length ? this.bufIdx : 0;
-      return this.srcArr[this.bufIdx];
-    },
-  });
-  img.buf.addEventListener("load", loadHandler);
-  img.addEventListener("animationend", animEndHandler);
-  img.change();
-  return img;
-
-  function loadHandler() {
-    setTimeout(
-      () => (this.img.style.animationName = "img-out"),
-      this.img.changeInterval
-    );
-  }
-  function animEndHandler({ animationName }) {
-    if (animationName === "img-out") this.change();
-  }
-}
-
-
-//CHECKING IF USER USES MOBILE OR PC
-
 const isMobile = {
 	Android: function () {
 		return navigator.userAgent.match(/Android/i);
@@ -89,7 +43,7 @@ if (isMobile.any()) {
 	document.body.classList.add('_pc');
 }
 
-//BURGER MENU
+// Меню бургер
 const iconMenu = document.querySelector('.menuIcon');
 const menuBody = document.querySelector('.menuBody');
 if (iconMenu) {
@@ -101,7 +55,7 @@ if (iconMenu) {
 }
 
 
-// Scroll when clicked
+// Прокрутка при клике
 const menuLinks = document.querySelectorAll('.menuLink[data-goto]');
 if (menuLinks.length > 0) {
 	menuLinks.forEach(menuLink => {
