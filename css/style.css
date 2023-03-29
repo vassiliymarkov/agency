@@ -83,7 +83,7 @@ body {
   	width: fit-content;
 }
 .menuLink {
-	/*font-family: jaapoki;*/
+	font-family: jaapoki;
 	color: #000;
 	font-size: calc(10px + 8 * (100vw / 1800));
 }
