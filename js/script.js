@@ -1,5 +1,6 @@
 "use strict"
 
+// USER SYSTEM AND BROWSER CHECK
 const isMobile = {
 	Android: function () {
 		return navigator.userAgent.match(/Android/i);
@@ -26,6 +27,7 @@ const isMobile = {
 	}
 };
 
+// BODY CLASS CHANGE FOR MOBILE DEVICES
 if (isMobile.any()) {
 	document.body.classList.add('_touch');
 
@@ -43,7 +45,23 @@ if (isMobile.any()) {
 	document.body.classList.add('_pc');
 }
 
-// Меню бургер
+// ACTIVE MENU LINK DECORATION
+let activeLinks = document.querySelectorAll(".menuLink");
+console.log(activeLinks);
+
+for (let i = 0; i < activeLinks.length; i++) {
+  activeLinks[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+
+    this.className += " active";
+  });
+} 
+
+// BURGER MENU
 const iconMenu = document.querySelector('.menuIcon');
 const menuBody = document.querySelector('.menuBody');
 if (iconMenu) {
@@ -55,7 +73,7 @@ if (iconMenu) {
 }
 
 
-// Прокрутка при клике
+// SMOOTH SCROLLING WHEN CLICKING THE MENU LINK
 const menuLinks = document.querySelectorAll('.menuLink[data-goto]');
 if (menuLinks.length > 0) {
 	menuLinks.forEach(menuLink => {
@@ -83,3 +101,45 @@ if (menuLinks.length > 0) {
 	}
 }
 
+// FIRST SCREEN GALLERY
+initImg('#firstScreen img', [
+	'img/intro_01.webp', 
+	'img/intro_02.webp', 
+	'img/intro_03.webp', 
+	'img/intro_04.webp', 
+	'img/intro_05.webp'
+  ]); 
+  
+  function initImg(selector, srcArr) {
+	const img = document.querySelector(selector); 
+	Object.assign(img, {
+	  buf: Object.assign(new Image(), { img }), 
+	  srcArr: [...srcArr], 
+	  changeInterval: 5e3,
+	  bufIdx: 0,
+	  change: function () {
+		this.style.animationName = 'img-in'; 
+		this.src = this.buf.src || this.nextImage(); 
+		this.buf.src = this.nextImage(); 
+	  }, 
+	  nextImage: function () {
+		this.bufIdx = ++this.bufIdx < this.srcArr.length ? this.bufIdx : 0;
+		return this.srcArr[this.bufIdx];
+	  }
+	}); 
+	img.buf.addEventListener('load', loadHandler); 
+	img.addEventListener('animationend', animEndHandler); 
+	img.change(); 
+	return img; 
+  
+	function loadHandler() {
+	  setTimeout(
+		() => this.img.style.animationName = 'img-out', 
+		this.img.changeInterval 
+	  ); 
+	}
+	function animEndHandler({ animationName }) {
+	  if (animationName === 'img-out') 
+		this.change(); 
+	}
+  }
