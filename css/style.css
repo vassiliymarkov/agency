@@ -271,6 +271,7 @@ body {
     animation: show 3s 1; 
     animation-fill-mode: forwards;
     animation-delay: 3s;
+    overflow: hidden
 }
 
 @media (min-width: 1400px) {
