@@ -47,7 +47,6 @@ if (isMobile.any()) {
 
 // ACTIVE MENU LINK DECORATION
 let activeLinks = document.querySelectorAll(".menuLink");
-console.log(activeLinks);
 
 for (let i = 0; i < activeLinks.length; i++) {
   activeLinks[i].addEventListener("click", function() {
@@ -84,7 +83,7 @@ if (menuLinks.length > 0) {
 		const menuLink = e.target;
 		if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
 			const gotoBlock = document.querySelector(menuLink.dataset.goto);
-			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
+			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY - document.querySelector('.menuContainer').offsetHeight;
 
 			if (iconMenu.classList.contains('_active')) {
 				document.body.classList.remove('_lock');
