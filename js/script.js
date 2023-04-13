@@ -46,17 +46,17 @@ if (isMobile.any()) {
 }
 
 // ACTIVE MENU LINK DECORATION
-let activeLinks = document.querySelectorAll(".menuLink");
+let activeLinks = document.querySelectorAll('.menuLink');
 
 for (let i = 0; i < activeLinks.length; i++) {
-  activeLinks[i].addEventListener("click", function() {
-    let current = document.getElementsByClassName("active");
+  activeLinks[i].addEventListener('click', function() {
+    let current = document.getElementsByClassName('active');
 
     if (current.length > 0) {
-      current[0].className = current[0].className.replace(" active", "");
+      current[0].className = current[0].className.replace(' active', '');
     }
 
-    this.className += " active";
+    this.className += ' active';
   });
 } 
 
@@ -142,3 +142,12 @@ initImg('#firstScreen img', [
 		this.change(); 
 	}
   }
+
+// RECTANGLE APPEARENCE
+window.addEventListener('load', function() {
+    const container = document.querySelector('.container');
+    setTimeout(() => {
+		container.classList.add('show');
+    }, 1000);
+  });
+
