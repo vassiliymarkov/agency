@@ -151,3 +151,36 @@ window.addEventListener('load', function() {
     }, 1000);
   });
 
+// SLIDER SWIPER
+new Swiper('bonPlansSlider')
+
+const swiper = new Swiper('.bonPlansSlider', {
+	// Optional parameters
+	direction: 'horizontal',
+	
+	loop: true,
+	
+	autoplay: {
+		delay: 5000,
+		stopOnLastSlide: false
+	},
+	
+  
+	// If we need pagination
+	/* pagination: {
+	  el: '.swiper-pagination',
+	}, */
+  
+	// Navigation arrows
+	/* navigation: {
+	  nextEl: '.swiper-button-next',
+	  prevEl: '.swiper-button-prev',
+	}, */
+  
+	// And if we need scrollbar
+	/* scrollbar: {
+	  el: '.swiper-scrollbar',
+	}, */
+
+});
+  
