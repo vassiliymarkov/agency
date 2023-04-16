@@ -90,7 +90,7 @@ body {
 }
 
 .menuList {
-	margin-right: 55px;
+	margin-right: 75px;
 	display: flex;
 	align-items: center;
 }
@@ -438,7 +438,7 @@ h1 {
 	width: 100%;
 	height: 100%;
 }
-.swiper-slide-text {
+/*.swiper-slide-text {
 	display: inline-block;
 	width: 50%;
 	text-align: center;
@@ -453,12 +453,14 @@ h1 {
 .swiper-slide-text p {
 	position: relative;
 	margin-top: 50px;
-}
+}*/
 .swiper-slide-image {
+	border: 1px solid blueviolet;
 	display: inline-block;
-	width: 49%;
-	object-fit: cover;
-	
+	width: 100%;
+}
+.swiper-slide-image img {
+	width: 100%;
 }
  
 /* @MEDIA */
@@ -554,6 +556,7 @@ h1 {
 	}
 	.menuList {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 	}
 	.menuList > li {
