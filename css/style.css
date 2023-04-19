@@ -32,9 +32,9 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 
-End of Normalizing Styles*/
+/*End of Normalizing Styles*/
 
-@font-face{
+@font-face {
 	font-family: 'MyWebFont';
 	src: url('../fonts/jaapokki-regular.eot');
 	src: url('../fonts/jaapokki-regular.eot') format('eot'),
@@ -58,236 +58,223 @@ body {
 
 .menuWraper {
 	position: fixed;
-	left: 0;
-	z-index: 3;
 	width: 100vw;
-	height: 80px;
+	top: 0;
+	left: 0;
+	z-index: 50;
+}
+
+.upperPannel {
 	margin: 0 auto;
-	font-family: 'Jaapokki regular', serif;
-  }
-  
-  .upperPannel {
-	margin: 0 auto;
+	max-width: 1800px;
 	background-color: #fff;
-  }
-  
-  .menuContainer {
+}
+
+.menuContainer {
+    max-width: 90%;
 	margin: 0px auto;
 	display: flex;
-	align-items: center;
+    align-items: center;
 	justify-content: space-between;
-	width: 90%;
-	height: 80px;
- }
+	min-height: 80px;
+	font-family: 'Jaapokki regular', serif;
+}
 .menuContainer img {
 	width: 75px;
 	height: 50px;
+	z-index: 2;
 }
-  
-  .menuIcon {
+
+.menuIcon {
 	display: none;
-  }
-  
-  .menuList>li {
+}
+
+.menuList > li {
 	position: relative;
 	margin: 0px 20px 0px 10px;
-	width: fit-content;
-  }
-  
-  .menuLink {
-	font-size: 1.3rem;
+    width: fit-content;
+}
+.menuLink {
 	color: #000;
-  }
-  
-  .menuLink:hover {
+	font-size: 1.3rem;
+}
+
+.menuLink:hover {
 	text-decoration: none;
-  }
-  
-  .menuSubList {
+}
+.menuSubList {
 	position: absolute;
 	top: 100%;
 	right: 0;
-	min-width: 200px;
+	background-color: #fff;
 	padding: 15px;
-	background-color: #000;
-  }
-  
-  .menuSubList li {
+	min-width: 300px;
+}
+.menuSubList li {
 	margin: 0px 0px 10px 0px;
-  }
-  
-  .menuSubList li:last-child {
+}
+.menuSubList li:last-child {
 	margin: 0;
-  }
-  
-  .menuSubLink {
-	color: #fff;
-  }
-  
-  .menuSubLink:hover {
+}
+.menuSubLink {
+	color: #000;
+}
+.menuSubLink:hover {
 	text-decoration: underline;
-  }
-  
-  .menuArrow {
+}
+.menuArrow {
 	display: none;
-  }
-  
-  
-  /* ----------------------- */
-  
-  body._pc .menuList>li:hover .menuSubList {
-	transform: translate(0px, 0px);
+}
+/* ----------------------- */
+body._pc .menuList > li:hover .menuSubList {
 	opacity: 1;
 	visibility: visible;
+	transform: translate(0px, 0px);
 	pointer-events: all;
-  }
-  
-  body._touch .menuList>li {
+}
+body._touch .menuList > li {
 	display: flex;
 	align-items: center;
-  }
-  
-  body._touch .menuLink {
+}
+body._touch .menuLink {
 	flex: 1 1 auto;
-  }
-  
-  body._touch .menuArrow {
-	margin: 0px 0px 0px 5px;
+}
+body._touch .menuArrow {
 	display: block;
-	height: 0;
 	width: 0;
+	height: 0;
+	margin: 0px 0px 0px 5px;
+	transition: transform 0.3s ease 0s;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	border-top: 10px solid #000;
-	transition: transform 0.3s ease 0s;
-  }
-  
-  body._touch .menuList>li._active .menuSubList {
-	transform: translate(0px, 0px);
+}
+
+body._touch .menuList > li._active .menuSubList {
 	opacity: 1;
 	visibility: visible;
+	transform: translate(0px, 0px);
 	pointer-events: all;
-  }
-  
-  body._touch .menuList>li._active .menuArrow {
+}
+body._touch .menuList > li._active .menuArrow {
 	transform: rotate(-180deg);
-  }
-  
-  
-  /* ----------------------- */
-  
-  @media (min-width: 767px) {
+}
+
+/* ----------------------- */
+@media (min-width: 950px) {
 	.menuList {
-	  display: flex;
-	  align-items: center;
+		display: flex;
+		align-items: center;
 	}
-	.menuList>li {
-	  padding: 10px 0;
+	.menuList > li {
+		padding: 10px 0;
 	}
 	.menuSubList {
-	  transform: translate(0px, 10%);
-	  opacity: 0;
-	  visibility: hidden;
-	  pointer-events: none;
-	  transition: all 0.3s ease 0s;
+		transform: translate(0px, 10%);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 0.3s ease 0s;
 	}
-  }
-  
-  @media (max-width: 767px) {
+}
+@media (max-width: 950px) {
 	.menuIcon {
-	  position: relative;
-	  z-index: 5;
-	  margin-left: 10px;
-	  display: block;
-	  height: 18px;
-	  width: 30px;
-	  cursor: pointer;
+		z-index: 5;
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		margin-left: 10px;
 	}
 	.menuIcon span,
 	.menuIcon::before,
 	.menuIcon::after {
-	  position: absolute;
-	  left: 0;
-	  height: 10%;
-	  width: 100%;
-	  background-color: #000;
-	  transition: all 0.3s ease 0s;
+		left: 0;
+		position: absolute;
+		height: 10%;
+		width: 100%;
+		transition: all 0.3s ease 0s;
+		background-color: #000;
 	}
 	.menuIcon::before,
 	.menuIcon::after {
-	  content: "";
+		content: "";
 	}
 	.menuIcon::before {
-	  top: 0;
+		top: 0;
 	}
 	.menuIcon::after {
-	  bottom: 0;
+		bottom: 0;
 	}
 	.menuIcon span {
-	  top: 50%;
-	  transform: scale(1) translate(0px, -50%);
+		top: 50%;
+		transform: scale(1) translate(0px, -50%);
 	}
+
 	.menuIcon._active span {
-	  transform: scale(0) translate(0px, -50%);
+		transform: scale(0) translate(0px, -50%);
 	}
 	.menuIcon._active::before {
-	  top: 50%;
-	  transform: rotate(-45deg) translate(0px, -50%);
+		top: 50%;
+		transform: rotate(-45deg) translate(0px, -50%);
 	}
 	.menuIcon._active::after {
-	  bottom: 50%;
-	  transform: rotate(45deg) translate(0px, 50%);
+		bottom: 50%;
+		transform: rotate(45deg) translate(0px, 50%);
 	}
+
 	.menuBody {
-	  position: fixed;
-	  top: 0;
-	  left: -100%;
-	  height: 100%;
-	  width: 100%;
-	  padding: 100px 30px 30px 30px;
-	  overflow: auto;
-	  background-color: #9fe8d6;
-	  transition: left 0.3s ease 0s;
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		padding: 100px 30px 30px 30px;
+		transition: left 0.3s ease 0s;
+		overflow: auto;
 	}
 	.menuBody._active {
-	  left: 0;
+		left: 0;
 	}
+
 	.menuBody::before {
-	  content: "";
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  z-index: 20;
-	  height: 70px;
-	  width: 100%;
-	  background-color: #9fe8d6;
+		content: "";
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 70px;
+		background-color: #fff;
+		z-index: 20;
 	}
-	.menuList>li {
-	  flex-wrap: wrap;
-	  margin: 0px 0px 30px 0px;
+
+	.menuList > li {
+		flex-wrap: wrap;
+		margin: 0px 0px 30px 0px;
 	}
-	.menuList>li:last-child {
-	  margin-bottom: 0;
+	.menuList > li:last-child {
+		margin-bottom: 0;
 	}
-	.menuList>li._active .menuSubList {
-	  display: block;
+	.menuList > li._active .menuSubList {
+		display: block;
 	}
 	.menuLink {
-	  font-size: 24px;
+		font-size: 24px;
 	}
 	.menuSubList {
-	  position: relative;
-	  margin: 20px 0px 0px 0px;
-	  display: none;
-	  flex: 1 1 100%;
-	  background-color: #fff;
+		position: relative;
+		background-color: #fff;
+		flex: 1 1 100%;
+		margin: 20px 0px 0px 0px;
+		display: none;
 	}
 	.menuSubLink {
-	  font-size: 20px;
-	  color: #000;
+		font-size: 20px;
+		color: #000;
 	}
-  }
-
+}
 
 /* FIRST SCREEN */
 
@@ -650,7 +637,7 @@ h1 {
 /* @MEDIA */
 
 @media (min-width: 1401px) {
-	.menuLink {
+.menuLink {
 		font-size: 20px;
 	}
 }
@@ -663,138 +650,8 @@ h1 {
 	font-weight: 700;
 }
 
-/*@media (max-width: 950px) {
-	#logo {
-		z-index: 1;
-		margin-left: calc(17px + (47 - 17) * ((100vw - 320px) / (950 - 320)));
-	}
-	.menuIcon {
-		z-index: 5;
-		display: block;
-		position: relative;
-		width: 30px;
-		height: 18px;
-		cursor: pointer;
-		margin-right: calc(15px + (50 - 15) * ((100vw - 320px) / (950 - 320)));
-	}
-	.menuIcon span,
-	.menuIcon::before,
-	.menuIcon::after {
-		left: 0;
-		position: absolute;
-		height: 10%;
-		width: 100%;
-		transition: all 0.3s ease 0s;
-		background-color: #000;
-	}
-	.menuIcon::before,
-	.menuIcon::after {
-		content: "";
-		}
-	.menuIcon::before {
-		top: 0;
-		}
-	.menuIcon::after {
-		bottom: 0;
-	}
-	.menuIcon span {
-		top: 50%;
-		transform: scale(1) translate(0px, -50%);
-	}
-
-	.menuIcon._active span {
-		transform: scale(0) translate(0px, -50%);
-	}
-	.menuIcon._active::before {
-		top: 50%;
-		transform: rotate(-45deg) translate(0px, -50%);
-	}
-	.menuIcon._active::after {
-		bottom: 50%;
-		transform: rotate(45deg) translate(0px, 50%);
-	}
-	.menuBody {
-		position: fixed;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background-color: #fff;
-		padding: 100px 30px 30px 30px;
-		transition: left 0.3s ease 0s;
-		overflow: auto;
-	}
-	.menuBody._active {
-		left: 0;
-	}
-
-	.menuBody::before {
-		content: "";
-		position: fixed;
-		width: 100%;
-		top: 0;
-		left: 0;
-		height: 80px;
-		background-color: #fff;
-		z-index: 20;
-	}
-	.menuList {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.menuList > li {
-		flex-wrap: wrap;
-		margin: 0px 0px 30px 0px;
-	}
-	.menuList > li:last-child {
-		margin-bottom: 0;
-	}
-	.menuList > li._active .menuSubList {
-		display: block;
-	}
-	.menuLink {
-		font-size: 24px;
-	}
-	.menuSubList {
-		position: relative;
-		background-color: #fff;
-		flex: 1 1 100%;
-		margin: 20px 0px 0px 0px;
-		display: none;
-	}
-	.menuSubLink {
-		font-size: 20px;
-		color: #000;
-	}
-	.rectangle.show {
-		z-index: 2;
-	}
-	.gallery {
-		display: flex;
-		flex-direction: column;
-	}
-	.menuContainer {
-		max-width: 100%;
-		margin: 0px auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		height: 80px;
-	}
-	.contentItem {
-		display: flex;
-		flex-direction: column;
-	}
-	.tabItem {
-		padding: 0 0 10px 0;
-		font-family: "Jaapokkiregular", serif;
-		font-size: 22px;
-		cursor: pointer;
-		flex-basis: 140px;
-		text-align: center;
-	}
-}*/
+@media (max-width: 950px) {
+	
 
 @media (min-width: 1800px) {
 	.wraper {
