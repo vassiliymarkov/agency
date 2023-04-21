@@ -56,6 +56,17 @@ body {
 
 /* MENU */
 
+a, a > span {
+	position: relative;
+	color: inherit;
+	text-decoration: none;
+	line-height: 21px;
+}
+a:before, a:after, a > span:before, a > span:after {
+	content: '';
+	position: absolute;
+	transition: transform 0.5s ease;
+}
 .menuWraper {
 	position: fixed;
 	width: 100vw;
@@ -69,7 +80,6 @@ body {
 	max-width: 1800px;
 	background-color: #fff;
 }
-
 .menuContainer {
     max-width: 90%;
 	margin: 0px auto;
@@ -84,11 +94,55 @@ body {
 	height: 50px;
 	z-index: 2;
 }
-
 .menuIcon {
 	display: none;
 }
-
+.singleLine {
+	display: inline-block;
+	overflow: hidden;
+}
+.singleLine:before {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: silver;
+	transform: translateX(-100%);
+}
+.singleLine:hover:before {
+	transform: translateX(0);
+}
+.doubleLine {
+	display: inline-block;
+	overflow: hidden;
+}
+.doubleLine:before, .doubleLine:after {
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: silver;
+}
+.doubleLine.active:before, .doubleLine.active:after {
+	left: 0;
+	width: 100%;
+	height: 2px;
+	border-top: 1px solid silver;
+}
+.doubleLine:before {
+	bottom: 0;
+	transform: translateX(-100%);
+}
+.doubleLine:after {
+	top: 0;
+	transform: translateX(100%);
+}
+.doubleLine:hover:before, .doubleLine:hover:after {
+	transform: translateX(0);
+}
+.menuList {
+	max-height: 100%;
+	flex-wrap: wrap;
+}
 .menuList > li {
 	position: relative;
 	margin: 0px 20px 0px 10px;
@@ -98,17 +152,15 @@ body {
 	color: #000;
 	font-size: 1.3rem;
 }
-
-.menuLink:hover {
-	text-decoration: none;
-}
 .menuSubList {
+	text-align: left;
 	position: absolute;
 	top: 100%;
-	right: 0;
+	left: 0;
 	background-color: #fff;
 	padding: 15px;
-	min-width: 300px;
+	width: 300px;
+	height: 100vh;
 }
 .menuSubList li {
 	margin: 0px 0px 10px 0px;
@@ -116,11 +168,8 @@ body {
 .menuSubList li:last-child {
 	margin: 0;
 }
-.menuSubLink {
-	color: #000;
-}
 .menuSubLink:hover {
-	text-decoration: underline;
+	color: silver;
 }
 .menuArrow {
 	display: none;
@@ -143,7 +192,7 @@ body._touch .menuArrow {
 	display: block;
 	width: 0;
 	height: 0;
-	margin: 0px 0px 0px 5px;
+	margin: 0px 0px 0px 10px;
 	transition: transform 0.3s ease 0s;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
@@ -223,7 +272,6 @@ body._touch .menuList > li._active .menuArrow {
 		bottom: 50%;
 		transform: rotate(45deg) translate(0px, 50%);
 	}
-
 	.menuBody {
 		position: fixed;
 		top: 0;
@@ -526,7 +574,7 @@ h1 {
 
 .services {
 	max-width: 90%;
-	margin: 0 auto 0 auto;
+	margin: 0 auto -90px auto;
 }
 .servicesTabs {
 	overflow: hidden;
@@ -602,14 +650,14 @@ h1 {
 /* SECTION BONS PLANS */
 .bonsPlans {
 	width: 90%;
-	margin: 0 auto;
+	margin: 0 auto 50px auto;
 }
 .swiper {
-	margin: -100px auto 50px auto;
+	margin: 0 auto 50px auto;
 	width: 100%;
 	height: 100%;
 }
-/*.swiper-slide-text {
+.swiper-slide-text {
 	display: inline-block;
 	width: 50%;
 	text-align: center;
@@ -624,7 +672,7 @@ h1 {
 .swiper-slide-text p {
 	position: relative;
 	margin-top: 50px;
-}*/
+}
 .swiper-slide-image {
 	border: 1px solid blueviolet;
 	display: inline-block;
@@ -635,23 +683,23 @@ h1 {
 }
  
 /* @MEDIA */
-
 @media (min-width: 1401px) {
 .menuLink {
 		font-size: 20px;
 	}
 }
 .menuLink:hover {
-	color: red;
+	color: silver;
 }
 
 .menuLink.active {
-	color: red;
-	font-weight: 700;
+	color: silver;
+	/*font-weight: 700;*/
 }
 
 @media (max-width: 950px) {
-	
+
+}
 
 @media (min-width: 1800px) {
 	.wraper {
