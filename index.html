@@ -15,10 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Lato&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
 
   <script src="https://kit.fontawesome.com/f5ead13868.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
 
 </head>
 
@@ -374,31 +375,40 @@
 
 <section class="bonsPlans page__section_2">
   <h1>BONS PLANS</h1>
+  <!-- Slider main container -->
   <div class="swiper">
     <!-- Additional required wrapper -->
-    <div class="bonPlansSlider">
-      <div class="swiper-wrapper">
+    <div class="swiper-wrapper">
       <!-- Slides -->
-        <div class="swiper-slide">
-          <div class="swiper-slide-image">
-            <div class="imageWrapper">
-              <img src="img/slider/Group1.png" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="swiper-slide-image">
-            <div class="imageWrapper">
-              <img src="img/slider/Group2.png" alt="">
-            </div>
-          </div>
+      <div class="swiper-slide">
+        <div><a href="#">
+          <img src="img/slider/slider_01.webp" alt="">
+        </a></div>
+          <div class="plate">
+            lfbmlfmgo
         </div>
       </div>
-      <!-- If we need navigation buttons --> 
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="swiper-slide">
+        <a href="#">
+          <img src="img/slider/slider_02.webp" alt="">
+        </a>
+        <div class="plate">
+          lfbmlfmgo
+      </div>
+      </div>
+      
     </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
   </div>
+
 </section>
 <section class="actualites">
   ofmorm
@@ -414,7 +424,9 @@
 
           
           
+          <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
           <script src="js/script.js"></script>
           <script src="js/script2.js"></script>
+          
           
     </body>
