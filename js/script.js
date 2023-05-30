@@ -1,5 +1,20 @@
 "use strict"
 
+// ACTIVE MENU LINK DECORATION
+let activeLinks = document.querySelectorAll(".menuLink");
+
+for (let i = 0; i < activeLinks.length; i++) {
+  activeLinks[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+
+    this.className += " active";
+  });
+}
+
 // CHECK DESKTOP OR MOBILE
 const isMobile = {
 	Android: function () {
@@ -136,34 +151,38 @@ window.addEventListener('load', function() {
   });
 
 // SLIDER SWIPER
-new Swiper('bonPlansSlider')
+const swiper = new Swiper('.swiper', {
 
-const swiper = new Swiper('.bonPlansSlider', {
-	// Optional parameters
-	direction: 'horizontal',
-	
-	loop: true,
-	
 	autoplay: {
 		delay: 5000,
 		stopOnLastSlide: false
 	},
-	
+
+	// Optional parameters
+	direction: 'horizontal',
+	loop: true,
+	speed: 400,
+  	spaceBetween: 100,
+	slidesPerView: 1,
+	allowSlideNext: true,
+	allowSlidePrev: true,
+	autoHeight: true,
+	centeredSlides: true,
+	init: true,
   
 	// If we need pagination
-	/* pagination: {
+	/*pagination: {
 	  el: '.swiper-pagination',
-	}, */
+	},*/
   
 	// Navigation arrows
-	/* navigation: {
+	navigation: {
 	  nextEl: '.swiper-button-next',
 	  prevEl: '.swiper-button-prev',
-	}, */
+	},
   
 	// And if we need scrollbar
-	/* scrollbar: {
+	/*scrollbar: {
 	  el: '.swiper-scrollbar',
-	}, */
-
-});
+	},*/
+  });  
